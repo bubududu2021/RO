@@ -31,11 +31,11 @@
             border-radius: 15px;
             margin-bottom: 20px;
         }
-        h1 { font-size: 22px; color: #333; margin-bottom: 25px; }
+        h1 { font-size: 22px; color: #333; margin-bottom: 25px; line-height: 1.4; }
         
-        /* The "Good One" Button Styling */
+        /* The Pink Rounded Button Styling */
         .btn {
-            background-color: #e91e63; /* Pink color */
+            background-color: #e91e63;
             color: white;
             padding: 12px 40px;
             border-radius: 25px;
@@ -52,7 +52,14 @@
         }
         
         .hidden { display: none; }
-        
+        .funny-text {
+            display: block;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+        }
+
         .heart {
             position: fixed;
             top: -10vh;
@@ -78,6 +85,7 @@
             <img src="bears.jpg" alt="Bears" class="display-img">
             <h1>Sweetiee, will you be my Valentine?</h1>
             <button class="btn" onclick="celebrate()">Yes! 🥰</button>
+            <span class="funny-text">(Error 404: "No" button not found. You're stuck with me!)</span>
         </div>
 
         <div id="successContent" class="hidden">
