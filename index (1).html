@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sweetiee</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 85%;
+            z-index: 10;
+            position: relative;
+        }
+        .display-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 22px; color: #333; margin-bottom: 25px; }
+        #yesBtn {
+            background-color: #e91e63;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 25px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn:hover { transform: scale(1.1); background-color: #c2185b; }
+        .hidden { display: none; }
+        .heart {
+            position: fixed;
+            top: -10vh;
+            font-size: 2rem;
+            color: #ff4d6d;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="questionContent">
+            <img src="bears.jpg" alt="Bears" class="display-img">
+            <h1>Nirali, will you be my Valentine?</h1>
+            <button id="yesBtn" onclick="celebrate()">Yes!</button>
+        </div>
+
+        <div id="successContent" class="hidden">
+            <img src="us_cartoon.jpg" alt="Us" class="display-img">
+            <div style="font-size: 24px; color: #e91e63; font-weight: bold;">
+                Yay! See you then! 🥰🌹
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            // Fixed heart list (syntax corrected)
+            const heartTypes = ['💖','💝','💕','💗','❤️','💙','💞','🫂','💋','😘'];
+            heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        function celebrate() {
+            document.getElementById('questionContent').classList.add('hidden');
+            document.getElementById('successContent').classList.remove('hidden');
+            setInterval(createHeart, 200);
+        }
+    </script>
+</body>
+</html>
