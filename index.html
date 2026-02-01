@@ -60,24 +60,29 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div id="questionContent">
+        <div id="step1">
+            <h1>I have a very important question to ask you...</h1>
+            <button class="btn" onclick="goToStep2()">What is it? ❤️</button>
+        </div>
+
+        <div id="step2" class="hidden">
             <img src="bears.jpg" alt="Bears" class="display-img">
             <h1>Sweetiee, will you be my Valentine?</h1>
-            <p style="color: #666; margin-bottom: 20px;">No option only yes 😂</p>
-            <button id="yesBtn" onclick="celebrate()">Yes!</button>
+            <button class="btn" onclick="celebrate()">Yes! 🥰</button>
         </div>
 
         <div id="successContent" class="hidden">
             <img src="us_cartoon.jpg" alt="Us" class="display-img">
-            <div style="font-size: 24px; color: #e91e63; font-weight: bold;">
-                Yay! See you then! 🥰🌹
-            </div>
+            <div style="font-size: 24px; color: #e91e63; font-weight: bold;">Yay! See you Soon Nanna 🥺🫂🌹</div>
         </div>
     </div>
 
     <script>
+        function goToStep2() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
