@@ -32,8 +32,10 @@
             margin-bottom: 20px;
         }
         h1 { font-size: 22px; color: #333; margin-bottom: 25px; }
-        #yesBtn {
-            background-color: #e91e63;
+        
+        /* The "Good One" Button Styling */
+        .btn {
+            background-color: #e91e63; /* Pink color */
             color: white;
             padding: 12px 40px;
             border-radius: 25px;
@@ -42,9 +44,15 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
+            display: inline-block;
         }
-        #yesBtn:hover { transform: scale(1.1); background-color: #c2185b; }
+        .btn:hover { 
+            transform: scale(1.1); 
+            background-color: #c2185b; 
+        }
+        
         .hidden { display: none; }
+        
         .heart {
             position: fixed;
             top: -10vh;
@@ -83,25 +91,22 @@
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
         }
+
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-
-            // Fixed heart list (syntax corrected)
             const heartTypes = ['💖','💝','💕','💗','❤️','💙','💞','🫂','💋','😘'];
             heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
-
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
             heart.style.opacity = Math.random() * 0.5 + 0.5;
             heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 5000);
         }
 
         function celebrate() {
-            document.getElementById('questionContent').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
             document.getElementById('successContent').classList.remove('hidden');
             setInterval(createHeart, 200);
         }
